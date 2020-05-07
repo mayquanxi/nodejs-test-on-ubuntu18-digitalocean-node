@@ -14,8 +14,9 @@ pipeline {
               }
               stage('Test code') {
                     steps {
-                         sh 'node ./app.js'
-                         sh 'Test app html export port 3000 success'
+                         timeout(time:1, unit:'MINUTES') {
+                                 sh 'node ./app.js'
+                         }
                     }     
               }
         }
