@@ -19,7 +19,7 @@ pipeline {
                 }
                 stage('Build app') {
                         steps {
-                                npm install
+                                sh 'npm install'
                         }
                 }
                 stage('Test node') {
