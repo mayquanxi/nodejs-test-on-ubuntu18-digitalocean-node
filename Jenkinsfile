@@ -11,6 +11,7 @@ pipeline {
                                 sh 'wget https://nodejs.org/dist/v12.16.3/node-v12.16.3-linux-x64.tar.xz'
                                 echo 'Extra nodejs'
                                 sh 'tar xf node-v12.16.3-linux-x64.tar.xz'
+                                sh 'pwd'
                                 echo 'Link nodejs to /bin folder'
                                 sh 'ln -s $(pwd)/node-v12.16.3-linux-x64/bin/node /usr/local/bin'
                                 sh 'ln -s $(pwd)/node-v12.16.3-linux-x64/bin/npm /usr/local/bin'
