@@ -13,8 +13,8 @@ pipeline {
                                 sh 'tar xf node-v12.16.3-linux-x64.tar.xz'
                                 sh 'pwd'
                                 echo 'Link nodejs to /bin folder'
-                                sh 'ln -s $(pwd)/node-v12.16.3-linux-x64/bin/node /usr/local/bin'
-                                sh 'ln -s $(pwd)/node-v12.16.3-linux-x64/bin/npm /usr/local/bin'
+                                sh 'ln -s -f $(pwd)/node-v12.16.3-linux-x64/bin/node /usr/local/bin'
+                                sh 'ln -s -f $(pwd)/node-v12.16.3-linux-x64/bin/npm /usr/local/bin'
                         }
                 }
                 stage('Build app') {
@@ -24,7 +24,7 @@ pipeline {
                 }
                 stage('Test node') {
                         steps {
-                                sh 'node -version'
+                                sh 'node --version'
                                 sh 'node ./app.js & sleep 5'
                                 input message: 'Checkout webapps first and then (click "Ok" to continue) '
                         }
